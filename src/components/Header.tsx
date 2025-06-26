@@ -66,15 +66,6 @@ export const Header: React.FC = () => {
               </li>
             </ul>
           </nav>
-          
-          <div className="flex-shrink-0">
-            <button 
-              onClick={() => scrollToSection('contato')}
-              className="bg-[rgba(86,51,208,1)] text-white text-sm font-medium px-6 py-3 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors"
-            >
-              Agende uma reunião
-            </button>
-          </div>
         </div>
       </div>
     </header>

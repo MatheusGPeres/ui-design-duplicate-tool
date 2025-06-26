@@ -25,6 +25,13 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ name, position, company, 
 };
 
 export const TestimonialsSection: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contato-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const testimonials = [
     {
       name: "Gabriella Schema",
@@ -50,10 +57,19 @@ export const TestimonialsSection: React.FC = () => {
           Acompanhe o que estão falando da gente por ai.
         </p>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}
+        </div>
+
+        <div className="text-center">
+          <button 
+            onClick={scrollToContact}
+            className="bg-[rgba(86,51,208,1)] text-white text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors"
+          >
+            Agende uma reunião
+          </button>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ export const ClientsSection: React.FC = () => {
   return (
     <section id="clientes" className="w-full py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="flex flex-col items-center lg:items-start">
             <div className="w-4 h-1 bg-[rgba(86,51,208,1)] mb-6" />
             <h2 className="text-3xl text-[rgba(86,51,208,1)] font-semibold text-center lg:text-left">
@@ -19,11 +19,6 @@ export const ClientsSection: React.FC = () => {
               className="w-full max-w-4xl mx-auto object-contain"
             />
           </div>
-        </div>
-        <div className="text-center">
-          <button className="bg-[rgba(86,51,208,1)] text-white text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors">
-            Ver todos os Cases
-          </button>
         </div>
       </div>
     </section>

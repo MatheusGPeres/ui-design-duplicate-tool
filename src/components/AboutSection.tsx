@@ -2,6 +2,13 @@
 import React from 'react';
 
 export const AboutSection: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contato-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="sobre" className="relative w-full min-h-[469px] overflow-hidden">
       <img
@@ -25,7 +32,7 @@ export const AboutSection: React.FC = () => {
             <div className="w-16 h-1 bg-white mb-6" />
             <h2 className="text-3xl font-semibold mb-6">Sobre nós</h2>
             
-            <div className="space-y-4 text-base">
+            <div className="space-y-4 text-base mb-8">
               <p>
                 ÜpBase é uma{" "}
                 <span className="font-bold">Consultoria Digital</span>{" "}
@@ -47,6 +54,13 @@ export const AboutSection: React.FC = () => {
                 apoiar as operações de Tecnologia e de Negócios dos nossos parceiros.
               </p>
             </div>
+
+            <button 
+              onClick={scrollToContact}
+              className="bg-white text-[rgba(86,51,208,1)] text-base font-medium px-8 py-4 rounded hover:bg-gray-100 transition-colors"
+            >
+              Contato
+            </button>
           </div>
         </div>
       </div>

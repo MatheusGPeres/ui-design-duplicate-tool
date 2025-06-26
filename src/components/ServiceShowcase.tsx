@@ -46,6 +46,13 @@ const ServiceShowcaseItem: React.FC<ServiceShowcaseItemProps> = ({
 };
 
 export const ServiceShowcase: React.FC = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contato-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const showcaseItems = [
     {
       image: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/8071be16a7da702a0318de1051b99627a7286497?placeholderIfAbsent=true",
@@ -87,10 +94,22 @@ export const ServiceShowcase: React.FC = () => {
           </span>
         </p>
         
-        <div className="space-y-8">
+        <div className="space-y-8 mb-12">
           {showcaseItems.map((item, index) => (
             <ServiceShowcaseItem key={index} {...item} />
           ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button className="bg-[rgba(86,51,208,1)] text-white text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors">
+            Ver todos os Cases
+          </button>
+          <button 
+            onClick={scrollToContact}
+            className="bg-white border-2 border-[rgba(86,51,208,1)] text-[rgba(86,51,208,1)] text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,1)] hover:text-white transition-colors"
+          >
+            Contato
+          </button>
         </div>
       </div>
     </section>

@@ -4,6 +4,14 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const HeroSlider: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const scrollToContact = () => {
+    const element = document.getElementById('contato');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const slides = [
     {
       id: 1,
@@ -39,7 +47,7 @@ export const HeroSlider: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full h-[600px] overflow-hidden">
+    <section id="inicio" className="relative w-full h-[600px] overflow-hidden">
       {/* Slides Container */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -66,7 +74,10 @@ export const HeroSlider: React.FC = () => {
                 <p className="text-xl mb-8 leading-relaxed">
                   {slide.description}
                 </p>
-                <button className="bg-[rgba(86,51,208,1)] text-white text-sm font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors">
+                <button 
+                  onClick={scrollToContact}
+                  className="bg-[rgba(86,51,208,1)] text-white text-sm font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors"
+                >
                   {slide.buttonText}
                 </button>
               </div>

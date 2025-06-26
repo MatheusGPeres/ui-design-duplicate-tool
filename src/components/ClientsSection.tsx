@@ -3,7 +3,7 @@ import React from 'react';
 
 export const ClientsSection: React.FC = () => {
   return (
-    <section className="w-full py-16">
+    <section id="clientes" className="w-full py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
           <div className="flex flex-col items-center lg:items-start">

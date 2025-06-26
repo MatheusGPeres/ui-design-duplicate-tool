@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 interface ContactFormData {
@@ -26,6 +27,7 @@ export const Footer: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    // Handle form submission logic here
     alert('Mensagem enviada com sucesso!');
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
@@ -46,27 +48,27 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-[rgba(86,51,208,1)]">
+    <footer id="contato" className="bg-[rgba(86,51,208,1)] w-full">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <img
               src="https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/12c740a5be3ad1a65290637b93a646e3ff9ce482?placeholderIfAbsent=true"
               alt="ÜpBase Logo"
-              className="w-48 object-contain mb-6"
+              className="h-16 mb-6"
             />
-            <div className="flex gap-2 mb-6">
+            <div className="flex space-x-2 mb-6">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
-                  className="w-10 h-10 bg-[rgba(110,193,228,0.1)] rounded flex items-center justify-center hover:bg-[rgba(110,193,228,0.2)] transition-colors"
+                  className="w-8 h-8 bg-white bg-opacity-10 rounded flex items-center justify-center hover:bg-opacity-20 transition-colors"
                   aria-label={social.alt}
                 >
                   <img
                     src={social.icon}
                     alt={social.alt}
-                    className="w-6 h-6 object-contain"
+                    className="w-5 h-5"
                   />
                 </a>
               ))}
@@ -79,16 +81,14 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           
-          <nav>
-            <h3 className="text-white text-xl font-semibold mb-6">
-              Menu
-            </h3>
+          <nav className="text-white">
+            <h3 className="text-xl font-semibold mb-6">Menu</h3>
             <ul className="space-y-4">
               {menuItems.map((item, index) => (
                 <li key={index}>
                   <a
                     href={item.url}
-                    className="text-white text-lg hover:text-gray-300 transition-colors"
+                    className="hover:text-gray-300 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -97,9 +97,9 @@ export const Footer: React.FC = () => {
             </ul>
           </nav>
           
-          <div>
-            <div className="text-white mb-8">
-              <p>
+          <div id="contato-form" className="text-white">
+            <div className="mb-6">
+              <p className="text-base">
                 <span className="font-bold">Fale Conosco.</span>
                 <span> Deixe seu contato e ligaremos para você.</span>
               </p>
@@ -153,11 +153,9 @@ export const Footer: React.FC = () => {
         </div>
       </div>
       
-      <div className="bg-[rgba(14,0,65,1)] text-white text-center py-6">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-sm font-semibold">
-            Todos os Direitos Reservados © Upbase - 2023
-          </p>
+      <div className="bg-[rgba(14,0,65,1)] py-4">
+        <div className="max-w-7xl mx-auto px-4 text-center text-white text-sm">
+          Todos os Direitos Reservados © Upbase - 2023
         </div>
       </div>
     </footer>

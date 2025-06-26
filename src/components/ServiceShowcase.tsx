@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface ServiceShowcaseItemProps {
@@ -15,46 +16,30 @@ const ServiceShowcaseItem: React.FC<ServiceShowcaseItemProps> = ({
 }) => {
   return (
     <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
-      {imagePosition === 'left' ? (
-        <>
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-64 lg:h-80 object-cover rounded-lg"
-          />
-          <div>
-            <h3 className="text-xl font-semibold text-[rgba(28,28,28,1)] mb-4">
-              {title}
-            </h3>
-            <p className="text-base text-[rgba(122,122,122,1)] leading-relaxed">
-              {description}{" "}
-              <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
-                Saiba mais.
-              </span>
-            </p>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="lg:order-2">
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-64 lg:h-80 object-cover rounded-lg"
-            />
-          </div>
-          <div className="lg:order-1">
-            <h3 className="text-xl font-semibold text-[rgba(28,28,28,1)] mb-4">
-              {title}
-            </h3>
-            <p className="text-base text-[rgba(122,122,122,1)] leading-relaxed">
-              {description}{" "}
-              <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
-                Saiba mais.
-              </span>
-            </p>
-          </div>
-        </>
+      {imagePosition === 'left' && (
+        <img
+          src={image}
+          alt={title}
+          className="w-full object-contain rounded-lg"
+        />
+      )}
+      <div className={imagePosition === 'right' ? 'lg:order-2' : ''}>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          {title}
+        </h3>
+        <p className="text-base text-gray-600 leading-relaxed">
+          {description}{" "}
+          <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
+            Saiba mais.
+          </span>
+        </p>
+      </div>
+      {imagePosition === 'right' && (
+        <img
+          src={image}
+          alt={title}
+          className="w-full object-contain rounded-lg lg:order-1"
+        />
       )}
     </article>
   );
@@ -89,12 +74,12 @@ export const ServiceShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="w-full py-16">
+    <section id="cases" className="w-full py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl text-[rgba(86,51,208,1)] font-semibold mb-6">
+        <h2 className="text-3xl font-semibold text-[rgba(86,51,208,1)] mb-6">
           A ÜpBase oferece uma ampla gama de Soluções e Serviços Especializados
         </h2>
-        <p className="text-base text-[rgba(122,122,122,1)] mb-12 max-w-4xl">
+        <p className="text-base text-gray-600 mb-12 leading-relaxed">
           Nossa Experiência e Comprometimento garantem Resultados excepcionais. Priorizamos a Responsabilidade Social e a 
           Sustentabilidade, agregando valor aos Negócios.{" "}
           <span className="font-bold">
@@ -102,9 +87,11 @@ export const ServiceShowcase: React.FC = () => {
           </span>
         </p>
         
-        {showcaseItems.map((item, index) => (
-          <ServiceShowcaseItem key={index} {...item} />
-        ))}
+        <div className="space-y-8">
+          {showcaseItems.map((item, index) => (
+            <ServiceShowcaseItem key={index} {...item} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,13 @@
 import React from 'react';
 
 export const ContactSection: React.FC = () => {
+  const scrollToFooter = () => {
+    const element = document.getElementById('contato-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative w-full min-h-96 overflow-hidden">
       <img
@@ -19,7 +26,10 @@ export const ContactSection: React.FC = () => {
           <p className="text-xl mb-12 leading-relaxed">
             Estamos prontos para impulsionar o Sucesso do seu Negócio. Conte conosco para encontrar Soluções Tecnológicas sob medida.
           </p>
-          <button className="bg-white text-[rgba(86,51,208,1)] text-base font-medium px-8 py-4 rounded hover:bg-gray-100 transition-colors">
+          <button 
+            onClick={scrollToFooter}
+            className="bg-white text-[rgba(86,51,208,1)] text-base font-medium px-8 py-4 rounded hover:bg-gray-100 transition-colors"
+          >
             Fale com um de Nossos Consultores
           </button>
         </div>

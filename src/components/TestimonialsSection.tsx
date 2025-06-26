@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface TestimonialProps {
   name: string;
@@ -9,14 +9,14 @@ interface TestimonialProps {
 
 const TestimonialCard: React.FC<TestimonialProps> = ({ name, position, company, content }) => {
   return (
-    <article className="bg-blend-normal bg-white flex min-w-60 flex-col overflow-hidden items-stretch w-[364px] pt-[19px] pb-[141px] px-[22px] rounded-[10px] max-md:pb-[100px] max-md:px-5">
-      <h3 className="text-[rgba(86,51,208,1)] font-semibold self-center">
+    <article className="bg-white rounded-lg p-6 shadow-lg">
+      <h3 className="text-[rgba(86,51,208,1)] font-semibold text-center mb-1">
         {name} - {position}
       </h3>
-      <p className="text-[rgba(140,140,140,1)] text-sm self-center mt-1">
+      <p className="text-[rgba(140,140,140,1)] text-sm text-center mb-6">
         {company}
       </p>
-      <blockquote className="mt-8 text-[rgba(51,51,51,1)] text-base">
+      <blockquote className="text-[rgba(51,51,51,1)] text-base leading-relaxed">
         {content}
       </blockquote>
     </article>
@@ -24,8 +24,6 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ name, position, company, 
 };
 
 export const TestimonialsSection: React.FC = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  
   const testimonials = [
     {
       name: "Gabriella Schema",
@@ -42,20 +40,18 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-blend-normal bg-[rgba(244,241,255,1)] flex w-[1425px] max-w-full flex-col items-center text-base font-normal mt-[60px] pb-40 px-20 max-md:mt-10 max-md:pb-[100px] max-md:px-5">
-      <div className="bg-blend-normal h-[423px] w-[1140px] max-w-full -mb-8 pt-[60px] max-md:mb-2.5">
-        <h2 className="bg-blend-normal w-full text-[32px] text-[rgba(86,51,208,1)] font-semibold whitespace-nowrap leading-none px-[70px] max-md:px-5">
+    <section className="w-full bg-[rgba(244,241,255,1)] py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl text-[rgba(86,51,208,1)] font-semibold text-center mb-4">
           Depoimentos
         </h2>
-        <p className="bg-blend-normal w-full text-[rgba(122,122,122,1)] mt-5 pb-[15px] px-[70px] max-md:px-5">
+        <p className="text-[rgba(122,122,122,1)] text-center mb-12">
           Acompanhe o que estão falando da gente por ai.
         </p>
-        <div className="bg-blend-normal flex w-full max-w-[1140px] flex-col overflow-hidden items-center text-[rgba(51,51,51,1)] mt-5 px-[70px] max-md:max-w-full max-md:px-5">
-          <div className="bg-blend-normal flex min-h-[353px] w-[728px] max-w-full gap-4 pl-2 py-2">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
         </div>
       </div>
     </section>

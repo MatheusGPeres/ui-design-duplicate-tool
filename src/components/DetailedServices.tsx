@@ -8,16 +8,16 @@ interface DetailedServiceCardProps {
 
 const DetailedServiceCard: React.FC<DetailedServiceCardProps> = ({ icon, title, description }) => {
   return (
-    <article className="bg-blend-normal bg-white flex min-w-60 flex-col items-stretch w-[265px] pt-5 pb-[59px] px-8 rounded-lg max-md:px-5">
+    <article className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
       <img
         src={icon}
         alt={`${title} icon`}
-        className="aspect-[0.98] object-contain w-[46px] bg-blend-normal self-center"
+        className="w-12 h-12 object-contain mx-auto mb-4"
       />
-      <h3 className="text-[rgba(31,31,31,1)] font-bold self-center mt-5 text-center">
+      <h3 className="text-lg font-bold text-[rgba(31,31,31,1)] mb-4">
         {title}
       </h3>
-      <p className="text-base text-[rgba(104,104,104,1)] font-normal mt-[34px] text-center">
+      <p className="text-base text-[rgba(104,104,104,1)] leading-relaxed">
         {description}
       </p>
     </article>
@@ -95,32 +95,34 @@ export const DetailedServices: React.FC = () => {
   ];
 
   return (
-    <section className="bg-blend-normal bg-[rgba(244,241,255,1)] flex w-[1425px] max-w-full flex-col items-center text-base text-[rgba(104,104,104,1)] font-normal mt-[60px] pt-[70px] px-20 max-md:mt-10 max-md:px-5">
-      <div className="flex w-[1070px] max-w-full flex-col items-center">
-        <h2 className="bg-blend-normal bg-white w-[473px] max-w-full text-[32px] text-[rgba(86,51,208,1)] font-semibold leading-none ml-[35px] p-2.5 max-md:max-w-full text-center">
-          O que podemos fazer por você?
-        </h2>
-        <p className="text-black text-[17px] ml-[35px] mt-[29px]">
-          Conheça nossos Serviços:
-        </p>
-        <p className="ml-[35px] mt-[34px] max-md:max-w-full text-center">
-          Nossa Equipe está sempre em busca de novas perspectivas, se antecipando a tendências e priorizando a 
-          Experiência do Usuário para entregar Soluções verdadeiramente diferenciadas.
-        </p>
+    <section className="w-full bg-[rgba(244,241,255,1)] py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="bg-white text-3xl text-[rgba(86,51,208,1)] font-semibold inline-block px-6 py-3 rounded">
+            O que podemos fazer por você?
+          </h2>
+          <p className="text-black text-lg mt-6 mb-4">
+            Conheça nossos Serviços:
+          </p>
+          <p className="text-[rgba(104,104,104,1)] text-base max-w-4xl mx-auto">
+            Nossa Equipe está sempre em busca de novas perspectivas, se antecipando a tendências e priorizando a 
+            Experiência do Usuário para entregar Soluções verdadeiramente diferenciadas.
+          </p>
+        </div>
         
-        <div className="bg-blend-normal self-stretch flex min-h-[368px] gap-5 ml-2.5 mt-[37px] py-2.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {servicesRow1.map((service, index) => (
             <DetailedServiceCard key={index} {...service} />
           ))}
         </div>
         
-        <div className="bg-blend-normal self-stretch flex min-h-[392px] gap-5 mt-[50px] pl-2.5 py-2.5 max-md:mr-2.5 max-md:mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {servicesRow2.map((service, index) => (
             <DetailedServiceCard key={index} {...service} />
           ))}
         </div>
         
-        <div className="bg-blend-normal self-stretch flex min-h-[344px] gap-5 mt-[87px] pl-2.5 py-2.5 max-md:mr-2.5 max-md:mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesRow3.map((service, index) => (
             <DetailedServiceCard key={index} {...service} />
           ))}

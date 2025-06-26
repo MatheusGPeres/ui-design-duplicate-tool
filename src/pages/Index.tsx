@@ -14,7 +14,7 @@ import { Footer } from '@/components/Footer';
 
 function Index() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       
       <main>

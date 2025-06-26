@@ -14,31 +14,47 @@ const ServiceShowcaseItem: React.FC<ServiceShowcaseItemProps> = ({
   imagePosition 
 }) => {
   return (
-    <article className="bg-blend-normal flex min-h-[305px] gap-5 mr-[21px] mt-5 py-2.5 max-md:max-w-full max-md:mr-2.5">
-      {imagePosition === 'left' && (
-        <img
-          src={image}
-          alt={title}
-          className="aspect-[1.5] object-contain w-[428px] bg-blend-normal min-w-60 max-md:max-w-full"
-        />
-      )}
-      <div className="bg-blend-normal min-w-60 h-[69px] w-[672px] pt-2.5 px-2.5 max-md:max-w-full">
-        <h3 className="bg-blend-normal max-w-full w-[652px] text-[21px] text-[rgba(28,28,28,1)] font-semibold leading-none max-md:max-w-full max-md:pr-5">
-          {title}
-        </h3>
-        <p className="bg-blend-normal min-h-12 max-w-full w-[652px] text-base text-[rgba(122,122,122,1)] font-normal mt-5 pr-9 max-md:pr-5">
-          {description}{" "}
-          <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
-            Saiba mais.
-          </span>
-        </p>
-      </div>
-      {imagePosition === 'right' && (
-        <img
-          src={image}
-          alt={title}
-          className="aspect-[1.5] object-contain w-[428px] bg-blend-normal min-w-60 max-md:max-w-full"
-        />
+    <article className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+      {imagePosition === 'left' ? (
+        <>
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-64 lg:h-80 object-cover rounded-lg"
+          />
+          <div>
+            <h3 className="text-xl font-semibold text-[rgba(28,28,28,1)] mb-4">
+              {title}
+            </h3>
+            <p className="text-base text-[rgba(122,122,122,1)] leading-relaxed">
+              {description}{" "}
+              <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
+                Saiba mais.
+              </span>
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="lg:order-2">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-64 lg:h-80 object-cover rounded-lg"
+            />
+          </div>
+          <div className="lg:order-1">
+            <h3 className="text-xl font-semibold text-[rgba(28,28,28,1)] mb-4">
+              {title}
+            </h3>
+            <p className="text-base text-[rgba(122,122,122,1)] leading-relaxed">
+              {description}{" "}
+              <span className="text-[rgba(204,51,102,1)] cursor-pointer hover:underline">
+                Saiba mais.
+              </span>
+            </p>
+          </div>
+        </>
       )}
     </article>
   );
@@ -73,25 +89,23 @@ export const ServiceShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-[1121px] max-w-full flex-col items-stretch ml-[153px] mt-[21px]">
-      <h2 className="text-[rgba(86,51,208,1)] text-[32px] font-semibold leading-none ml-[22px] mr-[23px] max-md:max-w-full max-md:mr-2.5">
-        A ÜpBase oferece uma ampla gama de Soluções e Serviços Especializados
-      </h2>
-      <p className="text-[rgba(122,122,122,1)] text-base font-normal mt-[19px] max-md:max-w-full">
-        Nossa Experiência e Comprometimento garantem Resultados excepcionais. Priorizamos a Responsabilidade Social e a 
-        Sustentabilidade, agregando valor aos Negócios.{" "}
-        <span className="font-bold">
-          Conte conosco para impulsionar o Crescimento da sua Empresa.
-        </span>
-      </p>
-      
-      <div className="bg-blend-normal flex min-h-64 w-[1020px] max-w-full gap-10 mt-[35px] pl-2.5 py-2.5">
-        <ServiceShowcaseItem {...showcaseItems[0]} />
+    <section className="w-full py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl text-[rgba(86,51,208,1)] font-semibold mb-6">
+          A ÜpBase oferece uma ampla gama de Soluções e Serviços Especializados
+        </h2>
+        <p className="text-base text-[rgba(122,122,122,1)] mb-12 max-w-4xl">
+          Nossa Experiência e Comprometimento garantem Resultados excepcionais. Priorizamos a Responsabilidade Social e a 
+          Sustentabilidade, agregando valor aos Negócios.{" "}
+          <span className="font-bold">
+            Conte conosco para impulsionar o Crescimento da sua Empresa.
+          </span>
+        </p>
+        
+        {showcaseItems.map((item, index) => (
+          <ServiceShowcaseItem key={index} {...item} />
+        ))}
       </div>
-      
-      {showcaseItems.slice(1).map((item, index) => (
-        <ServiceShowcaseItem key={index + 1} {...item} />
-      ))}
     </section>
   );
 };

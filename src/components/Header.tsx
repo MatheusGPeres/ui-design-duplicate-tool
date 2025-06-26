@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
             <img
               src="https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/6c6686bb5e99ff4ea44fcdaeafb17b3fd93638e0?placeholderIfAbsent=true"
               alt="ÜpBase Logo"
-              className="h-16 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </div>
           

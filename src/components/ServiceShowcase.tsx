@@ -100,10 +100,7 @@ export const ServiceShowcase: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="bg-[rgba(86,51,208,1)] text-white text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,0.9)] transition-colors">
-            Ver todos os Cases
-          </button>
+        <div className="flex justify-center">
           <button 
             onClick={scrollToContact}
             className="bg-white border-2 border-[rgba(86,51,208,1)] text-[rgba(86,51,208,1)] text-base font-medium px-8 py-4 rounded hover:bg-[rgba(86,51,208,1)] hover:text-white transition-colors"

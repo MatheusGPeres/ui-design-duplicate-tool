@@ -10,26 +10,28 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, buttonText, buttonColor }) => {
   return (
-    <article className="bg-blend-normal flex min-w-60 items-start gap-[40px_81px] flex-wrap w-[530px] pl-[25px] pr-2.5 pt-[22px] pb-[70px] max-md:max-w-full max-md:pl-5">
-      <img
-        src={icon}
-        alt={`${title} icon`}
-        className="aspect-[0.98] object-contain w-[50px] bg-blend-normal shrink-0 mt-12 max-md:mt-10"
-      />
-      <div className="bg-blend-normal h-[92px] grow shrink-0 basis-0 w-fit pt-2.5">
-        <h3 className="bg-blend-normal max-w-full w-[362px] text-xl text-black font-semibold whitespace-nowrap leading-none max-md:pr-5">
-          {title}
-        </h3>
-        <p className="bg-blend-normal min-h-[72px] max-w-full w-[362px] text-base text-[rgba(122,122,122,1)] font-normal mt-5 pr-[26px] max-md:pr-5">
-          {description}
-        </p>
-        {buttonText && (
-          <button 
-            className={`${buttonColor || 'bg-[rgba(97,206,112,1)]'} text-[15px] text-white font-medium leading-none mt-[35px] px-6 py-3 rounded-[3px] max-md:px-5 hover:opacity-90 transition-opacity`}
-          >
-            {buttonText}
-          </button>
-        )}
+    <article className="bg-white border border-gray-100 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+      <div className="flex items-start gap-6">
+        <img
+          src={icon}
+          alt={`${title} icon`}
+          className="w-12 h-12 object-contain flex-shrink-0 mt-2"
+        />
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold text-black mb-4">
+            {title}
+          </h3>
+          <p className="text-base text-[rgba(122,122,122,1)] leading-relaxed mb-6">
+            {description}
+          </p>
+          {buttonText && (
+            <button 
+              className={`${buttonColor || 'bg-[rgba(97,206,112,1)]'} text-white text-sm font-medium px-6 py-3 rounded hover:opacity-90 transition-opacity`}
+            >
+              {buttonText}
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );
@@ -62,14 +64,13 @@ export const ServicesGrid: React.FC = () => {
   ];
 
   return (
-    <section className="bg-blend-normal flex h-[493px] w-[1140px] max-w-full flex-col mt-[35px] pt-2.5 px-2.5">
-      <div className="bg-blend-normal flex min-h-[210px] w-[1060px] max-w-full gap-10 pl-2.5 py-2.5">
-        <ServiceCard {...services[0]} />
-        <ServiceCard {...services[1]} />
-      </div>
-      <div className="bg-blend-normal flex min-h-[282px] w-[1060px] max-w-full gap-10 mt-5 pl-2.5 py-2.5">
-        <ServiceCard {...services[2]} />
-        <ServiceCard {...services[3]} />
+    <section className="w-full bg-gray-50 py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
+        </div>
       </div>
     </section>
   );

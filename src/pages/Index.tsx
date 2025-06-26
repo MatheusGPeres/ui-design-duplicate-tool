@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Header } from '@/components/Header';
 import { HeroSlider } from '@/components/HeroSlider';
@@ -13,24 +14,22 @@ import { Footer } from '@/components/Footer';
 
 function Index() {
   return (
-    <div className="bg-blend-normal">
-      <div className="bg-blend-normal bg-white flex w-full flex-col max-md:max-w-full">
-        <Header />
-        
-        <main>
-          <HeroSlider />
-          <CompanyIntro />
-          <ServicesGrid />
-          <AboutSection />
-          <ClientsSection />
-          <DetailedServices />
-          <ServiceShowcase />
-          <TestimonialsSection />
-          <ContactSection />
-        </main>
-        
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      <main>
+        <HeroSlider />
+        <CompanyIntro />
+        <ServicesGrid />
+        <AboutSection />
+        <ClientsSection />
+        <DetailedServices />
+        <ServiceShowcase />
+        <TestimonialsSection />
+        <ContactSection />
+      </main>
+      
+      <Footer />
     </div>
   );
 }

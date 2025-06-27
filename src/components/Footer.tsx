@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface ContactFormData {
   name: string;
@@ -10,41 +9,66 @@ interface ContactFormData {
 
 export const Footer: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission logic here
-    alert('Mensagem enviada com sucesso!');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    alert("Mensagem enviada com sucesso!");
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const socialLinks = [
-    { icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/2391f6a2086f04980e47c4ae5c372ad1cfeee11f?placeholderIfAbsent=true", alt: "Facebook", url: "#" },
-    { icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/682d4ac7b48061fb5aedfcc7703d5a6b4122b6a1?placeholderIfAbsent=true", alt: "Instagram", url: "#" },
-    { icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/73c1f40725b749a86b6bd8c57e545c8935f43bc4?placeholderIfAbsent=true", alt: "LinkedIn", url: "#" },
-    { icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/415f6405b01f3fec0e04f66eff058768b6cf9acb?placeholderIfAbsent=true", alt: "Twitter", url: "#" },
-    { icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/607e111d16afbd3402a99757d2087f58b9cbe047?placeholderIfAbsent=true", alt: "YouTube", url: "#" }
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/2391f6a2086f04980e47c4ae5c372ad1cfeee11f?placeholderIfAbsent=true",
+      alt: "Facebook",
+      url: "https://www.facebook.com/upBaseConsultoriaTi",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/682d4ac7b48061fb5aedfcc7703d5a6b4122b6a1?placeholderIfAbsent=true",
+      alt: "Instagram",
+      url: "https://www.instagram.com/consultoria.upbase/",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/73c1f40725b749a86b6bd8c57e545c8935f43bc4?placeholderIfAbsent=true",
+      alt: "LinkedIn",
+      url: "https://www.linkedin.com/company/upbase-tech/",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/415f6405b01f3fec0e04f66eff058768b6cf9acb?placeholderIfAbsent=true",
+      alt: "YouTube",
+      url: "https://www.youtube.com/@upcode1765",
+    },
+    {
+      icon: "https://cdn.builder.io/api/v1/image/assets/4b7cbc58662a40e68e75e2c56ef1d835/607e111d16afbd3402a99757d2087f58b9cbe047?placeholderIfAbsent=true",
+      alt: "WhatsApp",
+      url: "https://api.whatsapp.com/send/?phone=5513997318796&text=Ol%C3%A1+encontrei+a+upbase+na+web%2C+gostaria+de+mais+informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0",
+    },
   ];
 
   const menuItems = [
     { label: "Home", url: "#" },
-    { label: "Programa de Estágio", url: "#" },
-    { label: "Trabalhe Conosco", url: "#" },
-    { label: "Cases", url: "#" }
+    {
+      label: "Programa de Estágio",
+      url: "https://upbase.com.br/programa-de-estagios/",
+    },
+    { label: "Trabalhe Conosco", url: "https://recrutamento.upbase.com.br/" },
+    { label: "Cases", url: "https://upbase.com.br/blog/" },
   ];
 
   return (
@@ -65,11 +89,7 @@ export const Footer: React.FC = () => {
                   className="w-8 h-8 bg-white bg-opacity-10 rounded flex items-center justify-center hover:bg-opacity-20 transition-colors"
                   aria-label={social.alt}
                 >
-                  <img
-                    src={social.icon}
-                    alt={social.alt}
-                    className="w-5 h-5"
-                  />
+                  <img src={social.icon} alt={social.alt} className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -80,7 +100,7 @@ export const Footer: React.FC = () => {
               <p>(13) 99731-8796</p>
             </div>
           </div>
-          
+
           <nav className="text-white">
             <h3 className="text-xl font-semibold mb-6">Menu</h3>
             <ul className="space-y-4">
@@ -96,7 +116,7 @@ export const Footer: React.FC = () => {
               ))}
             </ul>
           </nav>
-          
+
           <div id="contato-form" className="text-white">
             <div className="mb-6">
               <p className="text-base">
@@ -104,7 +124,7 @@ export const Footer: React.FC = () => {
                 <span> Deixe seu contato e ligaremos para você.</span>
               </p>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -152,10 +172,10 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="bg-[rgba(14,0,65,1)] py-4">
         <div className="max-w-7xl mx-auto px-4 text-center text-white text-sm">
-          Todos os Direitos Reservados © Upbase - 2023
+          Todos os Direitos Reservados © Upbase - 2025
         </div>
       </div>
     </footer>
